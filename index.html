@@ -7,9 +7,59 @@
 </head>
 <body>
     <div id="app">
-        <ul>
-            <li v-for="(item, index) in linguagens">{{ index }} - {{ item.nome }}</li>
-        </ul>
+        <h1>{{ titulo }}</h1>
+        <label for="">Nome:</label>
+        <input type="text" v-model="nome" placeholder="Digite seu nome"> <br>
+
+        <br><br>
+        <label for="">Celular:</label>
+        <input type="text" v-model="celular" placeholder="Digite seu celular"> <br>
+        <br><br>
+
+        <label for="">Email:</label>
+        <input type="text" v-model="email" placeholder="Digite seu email"> <br>
+        <br><br>
+
+        <label for="">Deseja receber nossas novidades?</label>
+        <input type="radio" v-model="newsletter" value="sim"> Sim
+        <input type="radio" v-model="newsletter" value="nao"> Não
+        <br><br>
+
+        <label for="">Interesses:</label>
+        <input type="checkbox" v-model="interesses" value="tecnologia"> Tecnologia
+        <input type="checkbox" v-model="interesses" value="saude"> Saúde
+        <input type="checkbox" v-model="interesses" value="esporte"> Esporte
+        <input type="checkbox" v-model="interesses" value="ciencia"> Ciência
+        <br><br>
+
+        <label for="">Como nos conheceu?</label>
+        <select v-model="comoConheceu">
+            <option value="google">Google</option>
+            <option value="facebook">Facebook</option>
+            <option value="instagram">Instagram</option>
+            <option value="twitter">Twitter</option>
+            <option value="indicacao">Indicação</option>
+            <option value="outro">Outro</option>
+        </select>
+        <br><br>
+        <label for="">Concordo com os termos de uso</label>
+        <input type="checkbox" value="sim" v-model="concordo">
+        <br><br>
+
+        <button>ENVIAR</button>
+        <hr>
+
+
+        <p>Nome: </p>{{ nome }}
+        <p>Celular: </p>{{ celular }}
+        <p>E-mail</p>{{ email }}
+        <p>Deseja receber novidades?</p>{{ newsletter }}
+        <p>Seus interesses: </p><div v-if="interesses.length > 0">
+            {{ interesses }}
+        </div>
+        <p>Como conheceu: </p>{{ comoConheceu }}
+        <p>Termos de uso: </p>{{ concordo }}
+
     </div>
     
     <script src="js/vue.js"></script>
@@ -17,19 +67,14 @@
         var app = new Vue ({
             el: '#app',
             data: {
-                titulo: 'Vue 02',
-                linguagens: [
-                    { nome: 'Javascript'},
-                    { nome: 'PHP' },
-                    { nome: 'Java' },
-                    { nome: 'Python' },
-                    { nome: 'C#' },
-                    { nome: 'C++' },
-                    { nome: 'Ruby' },
-                    { nome: 'Swift' },
-                    { nome: 'Go' },
-                    { nome: 'Rust' }
-                ]
+                titulo: 'Vue 02 - V-model',
+                nome: "",
+                celular: "",
+                email: "",
+                newsletter: "",
+                interesses: [],
+                comoConheceu: "",
+                concordo: ""
             }
         });
     </script>
