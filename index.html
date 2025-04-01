@@ -17,9 +17,9 @@
         <h2>V-bind</h2>
         <!--Podemos usar dois pontos para o bind, sem escrever v-bind. -->
         <!-- <img v-bind:src="imagem" v-bind:alt="Imagem do Vue"> -->
-        <img :src="imagem" :alt="imagem-vue">
+        <img :src="imagem" :alt="'imagem-vuejs'">
         <!--Podemos fazer sem variável, é só colocar dentro de aspas simples no html -->
-        <img :src="'https://br.vuejs.org/images/logo.svg'" :alt="'imagem-vue'">
+        <img :src="'https://br.vuejs.org/images/logo.svg'" :alt="'imagem-vuejs'">
         <!--E depois remover a variável -->
 
         <button @click="toggleVisibility">Toggle Visibility</button>
