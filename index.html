@@ -1,48 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue 02</title>
-    <style>
-        .hidden {
-            display: none;
-        }
-        
-    </style>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
     <div id="app">
-        <h1>{{ titulo }}</h1>
-        <h2>V-bind</h2>
-        <!--Podemos usar dois pontos para o bind, sem escrever v-bind. -->
-        <!-- <img v-bind:src="imagem" v-bind:alt="Imagem do Vue"> -->
-        <img :src="imagem" :alt="'imagem-vuejs'">
-        <!--Podemos fazer sem variável, é só colocar dentro de aspas simples no html -->
-        <img :src="'https://br.vuejs.org/images/logo.svg'" :alt="'imagem-vuejs'">
-        <!--E depois remover a variável -->
-
-        <button @click="toggleVisibility">Toggle Visibility</button>
-        <div v-bind:class="{ hidden: isHidden }">
-            Este conteúdo pode ser ocultado ou exibido.
-        </div>
+      <h1>{{ titulo }}</h1>
+      <ul>
+        <li v-for="(item, index) in linguagens">{{ index }} - {{ item.nome }}</li>
+      </ul>
     </div>
-    
-    <script src="js/vue.js"></script>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
     <script>
-        var app = new Vue ({
-            el: '#app',
-            data: {
-                titulo: "Vue 02",
-                imagem: "https://br.vuejs.org/images/logo.svg",
-                isHidden: false,
-            },
-            methods: {
-                toggleVisibility() {
-                    this.isHidden = !this.isHidden;
-                }
-            }
-        });
+      const app = new Vue({
+        el: "#app",
+        data: {
+          titulo: "Hello Vue!",
+          linguagens: [
+            { nome: "JavaScript"},
+            { nome: "Python"},
+            { nome: "Java"},
+            { nome: "C++"},
+            { nome: "C#"},
+            { nome: "PHP"},
+            { nome: "Ruby"},
+            { nome: "Swift"},
+            { nome: "Go"},
+            { nome: "Rust"},
+          ],
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
